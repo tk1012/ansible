@@ -1,11 +1,9 @@
 - hosts: localhost
   connection: local
   gather_facts: True
-  tasks:
-    - debug: msg="hello world"
 
 - name: Include a play for MacOS
-  import_playbook: macos.yaml
+  import_playbook: mac.yaml
   when:
     - ansible_distribution == "MacOSX"
 

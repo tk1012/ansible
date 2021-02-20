@@ -1,4 +1,23 @@
 - hosts: localhost
   connection: local
   tasks:
-    - debug: msg="TODO hello world @ fedora"
+  - name: dnf update
+    dnf: name=* state=latest
+    become: yes
+
+  - name: install dnf packages
+    dnf:
+      name: ['zsh', 'openssh', 'openssh-server', 'fzf', 'neovim', 'cmake', 'util-linux-user', 'nodejs']
+      state: latest
+    become: yes
+
+  - name: install pip3 packages
+    pip:
+      name: ['neovim']
+      state: latest
+      executable: pip3
+
+  - name: install vim-plug for neovim
+    command:
+      cmd: curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      warn: false

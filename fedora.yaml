@@ -7,7 +7,7 @@
 
   - name: install dnf packages
     dnf:
-      name: ['zsh', 'openssh', 'openssh-server', 'fzf', 'neovim', 'cmake', 'util-linux-user', 'nodejs']
+      name: ['zsh', 'openssh', 'openssh-server', 'fzf', 'neovim', 'cmake', 'util-linux-user', 'nodejs', 'tmux']
       state: latest
     become: yes
 

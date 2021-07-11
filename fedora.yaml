@@ -11,6 +11,16 @@
       state: latest
     become: yes
 
+  - name: install zplug
+    command:
+      cmd: git clone https://github.com/zplug/zplug $HOME/.zplug
+      warn: false
+
+  - name: install tpm
+    command:
+      cmd: git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+      warn: false
+
   - name: install pip3 packages
     pip:
       name: ['neovim']
